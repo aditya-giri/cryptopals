@@ -35,3 +35,6 @@ def score(word):
             score += letter_score[ch.upper()]*100
     return score
 
+def decode(ciphertext, key):
+    k = ''.join([chr(b ^ key) for b in bytearray.fromhex(ciphertext)])
+    return k

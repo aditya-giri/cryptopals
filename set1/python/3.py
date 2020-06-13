@@ -14,11 +14,7 @@
 * This solution uses a pretty primitive scoring mechanism 
 * Character frequencies taken from https://gist.github.com/pozhidaevak/0dca594d6f0de367f232909fe21cdb2f
 """
-from utils import score
-
-def decode(ciphertext, key):
-    k = ''.join([chr(b ^ key) for b in bytearray.fromhex(ciphertext)])
-    return k
+from utils import score, decode
 
 def single_byte_xor_cipher(hex_input):
     return max(range(256), key = lambda x: score(decode(hex_input, x)))
