@@ -14,14 +14,11 @@
 * Encrypt a bunch of stuff using your repeating-key XOR function. Encrypt your mail. Encrypt your password file. Your .sig file. Get a feel for it. I promise, we aren't wasting your time with this.
 """
 
-from utils import decode
-
 def repeating_key_xor(word, key):
-    
     return ''.join(
         [
             chr(
-                ord(word[i])^ord(key[i%len(key)])
+                ord(word[i]) ^ ord(key[i % len(key)])
             )
             for i in range(len(word))
         ]
